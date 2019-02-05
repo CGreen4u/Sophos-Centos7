@@ -25,24 +25,10 @@ RUN buildDeps='ca-certificates wget' \
 # && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go
 
 
-# Expose our CID first
-#VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
-
-COPY ./savinstpkg.deb /
-RUN dpkg -i /savinstpkg.deb || true
-
-COPY ./entrypoint.sh /
-# Update, then run.
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["savscan", "-h"]
-
-
-
 # Update Sophos
-#RUN /opt/sophos/update/savupdate.sh
+RUN /opt/sophos/update/savupdate.sh
 # Add EICAR Test Virus File to malware folder
-#ADD http://www.eicar.org/download/eicar.com.txt /malware/EICAR
-#WORKDIR /malware
-#ENTRYPOINT ["/bin/avscan"]
-#CMD ["--help"]
+ADD http://www.eicar.org/download/eicar.com.txt /malware/EICAR
+WORKDIR /malware
+ENTRYPOINT ["/bin/avscan"]
+CMD ["--help"]
