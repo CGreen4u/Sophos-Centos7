@@ -32,7 +32,7 @@ RUN buildDeps='ca-certificates wget' \
 && yum clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go
 
-COPY --from=centos7 /bin/avscan /bin/avscan
+COPY --from=go_builder /bin/avscan /bin/avscan
 # Update Sophos
 RUN /opt/sophos/update/savupdate.sh
 # Add EICAR Test Virus File to malware folder
