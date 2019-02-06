@@ -1,4 +1,12 @@
 #Chris Green
+#goland builder
+From goland:1.11 as go_builder
+
+COPY ./go/src/github.com/malice-plugins/sophos
+WORKDIR /go/src/github.com/malice-plugins/sophos
+RUN go get -u github.com/goland/dep/cmd/dep && dep ensure
+RUN  go build -idflags "-s -w -X main.Version=v$(cat VERSION) -X main.BuildTime=$(date -u +%Y%m%d)" -o bin/avscan
+
 #Sophos Dockerfile
 
 FROM centos:7
