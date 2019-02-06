@@ -20,11 +20,11 @@ RUN buildDeps='ca-certificates wget' \
 && tar xzvf sav-linux-free-9.tgz \
 && ./sophos-av/install.sh /opt/sophos --update-free --acceptlicence --autostart=False --enableOnBoot=False --automatic --ignore-existing-installation --update-source-type=s \
 && echo "Clean up unnecessary files..." \
-# && yum purge -y --auto-remove $buildDeps \
-# && yum clean \
-# && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go
+&& yum purge -y --auto-remove $buildDeps \
+&& yum clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go
 
-
+COPY --from=centos7 /bin/avscan /bin/avscan
 # Update Sophos
 RUN /opt/sophos/update/savupdate.sh
 # Add EICAR Test Virus File to malware folder
