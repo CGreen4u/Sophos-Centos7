@@ -10,6 +10,22 @@ RUN  go build -idflags "-s -w -X main.Version=v$(cat VERSION) -X main.BuildTime=
 #Sophos Dockerfile
 
 FROM centos:7
+
+LABEL maintainer "https://github.com/blacktop"
+
+LABEL malice.plugin.repository = "https://github.com/malice-plugins/sophos.git"
+LABEL malice.plugin.category="av"
+LABEL malice.plugin.mime="*"
+LABEL malice.plugin.docker.engine="*"
+
+# Create a malice user and group first so the IDs get set the same way, even as
+# the rest of this may change over time.
+RUN groupadd -r malice \
+  && useradd --no-log-init -r -g malice malice \
+  && mkdir /malware \
+  && chown -R malice:malice /malware
+
+#Packages needed 
 RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
 && yum -y install epel-release \
 && yum -y update \
