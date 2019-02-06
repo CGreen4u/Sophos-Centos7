@@ -45,8 +45,8 @@ RUN buildDeps='ca-certificates wget' \
 && tar xzvf sav-linux-free-9.tgz \
 && ./sophos-av/install.sh /opt/sophos --update-free --acceptlicence --autostart=False --enableOnBoot=False --automatic --ignore-existing-installation --update-source-type=s \
 && echo "Clean up unnecessary files..." \
-&& yum purge -y --auto-remove $buildDeps \
-&& yum clean \
+#&& yum purge -y --auto-remove $buildDeps \
+#&& yum clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /go
 
 COPY --from=go_builder /bin/avscan /bin/avscan
