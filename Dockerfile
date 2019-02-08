@@ -27,8 +27,8 @@ RUN groupadd -r malice \
   && chown -R malice:malice /malware
 
 #Packages needed 
-RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
-&& yum -y install epel-release \
+#RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
+RUN yum -y install epel-release \
 && yum -y update \
 && yum -y install clamav-data-empty clamav-update \
 && yum -y install wget \
