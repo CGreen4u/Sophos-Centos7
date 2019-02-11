@@ -1,14 +1,11 @@
-# malice-sophos
-
-[![Circle CI](https://circleci.com/gh/malice-plugins/sophos.png?style=shield)](https://circleci.com/gh/malice-plugins/sophos) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Docker Stars](https://img.shields.io/docker/stars/malice/sophos.svg)](https://hub.docker.com/r/malice/sophos/) [![Docker Pulls](https://img.shields.io/docker/pulls/malice/sophos.svg)](https://hub.docker.com/r/malice/sophos/) [![Docker Image](https://img.shields.io/badge/docker%20image-930MB-blue.svg)](https://hub.docker.com/r/malice/sophos/)
-
+# cgreen010-sophos
+based off
 Malice Sophos AntiVirus Plugin
 
-> This repository contains a **Dockerfile** of [Sophos](https://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-linux.aspx) for [Docker](https://www.docker.io/)'s [trusted build](https://hub.docker.com/r/malice/sophos/) published to the public [DockerHub](https://index.docker.io/).
 
 ### Dependencies
 
-- [ubuntu:bionic (_84.1 MB_\)](https://hub.docker.com/_/ubuntu/)
+-  centos7
 
 ## Installation
 
@@ -18,13 +15,13 @@ Malice Sophos AntiVirus Plugin
 ## Usage
 
 ```
-docker run --rm malice/sophos EICAR
+docker run --rm cgreen010/sophos-centos7 EICAR
 ```
 
 ### Or link your own malware folder:
 
 ```bash
-$ docker run --rm -v /path/to/malware:/malware:ro malice/sophos FILE
+$ docker run --rm -v /path/to/malware:/malware:ro cgreen010/sophos-centos7 FILE
 
 Usage: sophos [OPTIONS] COMMAND [arg...]
 
