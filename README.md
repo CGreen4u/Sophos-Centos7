@@ -10,7 +10,7 @@ Malice Sophos AntiVirus Plugin
 ## Installation
 
 1. Install [Docker](https://www.docker.io/).
-2. Download [trusted build](https://hub.docker.com/r/malice/sophos/) from public [DockerHub](https://hub.docker.com): `docker pull malice/sophos`
+2. Download [trusted build](https://hub.docker.com/r/malice/sophos/) from public [DockerHub](https://hub.docker.com): `docker pull cgreen010/sophos-centos7`
 
 ## Usage
 
