@@ -28,11 +28,11 @@ RUN groupadd -r malice \
 
 #Packages needed 
 #RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7 \
-#RUN yum -y install epel-release \
-#&& yum -y update \
+RUN yum -y install epel-release \
+&& yum -y update \
 #&& yum -y install clamav-data-empty clamav-update \
-#&& yum -y install wget \
-#&& yum clean all
+&& yum -y install wget \
+&& yum clean all
 RUN mkdir -p /tmp
 WORKDIR /tmp
 # Download Sophos
